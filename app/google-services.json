@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "316386647090",
+    "firebase_url": "https://student-forum-for-ad.firebaseio.com",
+    "project_id": "student-forum-for-ad",
+    "storage_bucket": "student-forum-for-ad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:316386647090:android:8f8c3b10a670ea76",
+        "android_client_info": {
+          "package_name": "forum.student.studentforumad"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "316386647090-f8fbl9ccho36fva5bvhpgg10kjs9akre.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8CLbYih0kU_DpLG1UpaWud-DFgiLU2kQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
