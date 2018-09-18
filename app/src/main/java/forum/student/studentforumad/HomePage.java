@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -14,6 +15,8 @@ public class HomePage extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
     private Button Sign_out;
+    private ImageButton Add_Post;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +33,16 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
+        Add_Post = (ImageButton)findViewById(R.id.btnAddPost);
+
+        Add_Post.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomePage.this, AddPostPage.class));
+            }
+        });
     }
+
 
     private void sign_out(){
         firebaseAuth.signOut();
