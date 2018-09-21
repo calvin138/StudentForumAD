@@ -32,7 +32,7 @@
         android:layout_marginTop="64dp"
         android:text="Title"
         android:textSize="25dp"
-        app:layout_constraintBottom_toTopOf="@+id/editText2"
+        app:layout_constraintBottom_toTopOf="@+id/etPostTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.019"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,7 +40,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/etPostTitle"
         android:layout_width="443dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -70,7 +70,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.026"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/etPostTitle" />
 
     <TextView
         android:id="@+id/textView6"
@@ -100,15 +100,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2">
+        app:layout_constraintTop_toBottomOf="@+id/etPostTitle">
 
-        <MultiAutoCompleteTextView
-            android:id="@+id/multiAutoCompleteTextView5"
+        <EditText
+            android:id="@+id/etPostBody"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:nestedScrollingEnabled="true"
-            android:text="a" />
-
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name" />
     </LinearLayout>
 
     <LinearLayout
@@ -127,7 +127,7 @@
         app:layout_constraintVertical_bias="0.01"></LinearLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnPost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"

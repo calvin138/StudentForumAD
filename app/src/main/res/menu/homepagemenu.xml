@@ -37,10 +37,10 @@
     </item>
     <item
 
-        android:id="@+id/AccountMenu"
+        android:id="@+id/EditProfile"
         android:orderInCategory="100"
         app:showAsAction="never"
-        android:title="Edit Profile"
+        android:title="View Profile"
         >
 
 
