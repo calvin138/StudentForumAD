@@ -108,14 +108,18 @@ public class AddPostPage extends AppCompatActivity {
     public void validatePostInfo(){
         title = addTitle.getText().toString();
         body = addBody.getText().toString();
-        if(ImageUri==null){
-            Toast.makeText(this, "Please select image",Toast.LENGTH_SHORT).show();
-        }
-        else if(TextUtils.isEmpty(title)){
+        if(TextUtils.isEmpty(title)){
             Toast.makeText(this, "Please add the title",Toast.LENGTH_SHORT).show();
         }
         else if(TextUtils.isEmpty(body)){
             Toast.makeText(this, "Please add body", Toast.LENGTH_SHORT).show();
+        }
+        else if(ImageUri!=null){
+            loadingbar.setTitle("Add new Post");
+            loadingbar.setMessage("Please wait for a moment");
+            loadingbar.show();
+            loadingbar.setCanceledOnTouchOutside(true);
+            StoringImageToFirebaseStorage();
         }
         else
         {
@@ -123,7 +127,7 @@ public class AddPostPage extends AppCompatActivity {
             loadingbar.setMessage("Please wait for a moment");
             loadingbar.show();
             loadingbar.setCanceledOnTouchOutside(true);
-            StoringImageToFirebaseStorage();
+            savingPostWOimage();
         }
     }
 
@@ -146,7 +150,7 @@ public class AddPostPage extends AppCompatActivity {
             public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
                 if(task.isSuccessful())
                 {
-                    downloadUrl = task.getResult().getMetadata().getReference().getDownloadUrl().toString();
+                    downloadUrl = task.getResult().getDownloadUrl().toString();
                     Toast.makeText(AddPostPage.this, "Image uploaded successfully",Toast.LENGTH_SHORT).show();
 
                     savingPost();
@@ -198,6 +202,56 @@ public class AddPostPage extends AppCompatActivity {
 
             }
         });
+
+    }
+    public void savingPostWOimage(){userref.child(current_user_id).addValueEventListener(new ValueEventListener() {
+        @Override
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            if(dataSnapshot.exists()){
+                Calendar calFordDate = Calendar.getInstance();
+                SimpleDateFormat currentDate = new SimpleDateFormat("dd-MMMM-yyyy");
+                saveCurrentDate = currentDate.format(calFordDate.getTime());
+
+                Calendar calFordTime = Calendar.getInstance();
+                SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm");
+                saveCurrentTime = currentTime.format(calFordDate.getTime());
+
+                postRandomName = saveCurrentDate + saveCurrentTime;
+
+                String userName = dataSnapshot.child("userName").getValue().toString();
+
+                HashMap postMap = new HashMap();
+
+                postMap.put("uid", current_user_id);
+                postMap.put("date", saveCurrentDate);
+                postMap.put("time", saveCurrentTime);
+                postMap.put("title", title);
+                postMap.put("name",  userName );
+                postMap.put("body", body);
+
+                postref.child(current_user_id + postRandomName).updateChildren(postMap).addOnCompleteListener(new OnCompleteListener() {
+                    @Override
+                    public void onComplete(@NonNull Task task) {
+                        if(task.isSuccessful()){
+                            sendToHomepage();
+                            Toast.makeText(AddPostPage.this, "Post updated successfully", Toast.LENGTH_SHORT).show();
+                            loadingbar.dismiss();
+                        }
+                        else{
+                            Toast.makeText(AddPostPage.this, "Error", Toast.LENGTH_SHORT).show();
+                            loadingbar.dismiss();
+                        }
+                    }
+                });
+            }
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+        }
+    });
+
 
     }
     public void sendToHomepage(){

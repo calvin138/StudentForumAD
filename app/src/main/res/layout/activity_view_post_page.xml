@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whiteColor"
+    tools:context=".ViewPostPage">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/viewRemovePostBtn"
+                android:layout_width="477dp"
+                android:layout_height="63dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="2dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp"
+                android:text="Remove Post"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewPostImage" />
+
+            <TextView
+                android:id="@+id/viewPostBody"
+                android:layout_width="379dp"
+                android:layout_height="255dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="51dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="14dp"
+                android:text="TextView"
+                app:layout_constraintBottom_toTopOf="@+id/viewPostImage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewPostTitle" />
+
+            <TextView
+                android:id="@+id/viewPostTitle"
+                android:layout_width="259dp"
+                android:layout_height="45dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/viewPostBody"
+                android:layout_marginBottom="14dp"
+                android:layout_marginEnd="171dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="55dp"
+                android:text="TextView"
+                app:layout_constraintBottom_toTopOf="@+id/viewPostBody"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/viewPostImage"
+                android:layout_width="359dp"
+                android:layout_height="291dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="11dp"
+                android:layout_marginEnd="61dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="13dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toTopOf="@+id/viewRemovePostBtn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewPostBody" />
+        </android.support.constraint.ConstraintLayout>
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

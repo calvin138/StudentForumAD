@@ -84,12 +84,24 @@ public class HomePage extends AppCompatActivity {
             @Override
             protected void populateViewHolder(PostViewHolder viewHolder, Post model, int position)
             {
+                final String post_key = getRef(position).getKey();
+
                 viewHolder.setName(model.getName());
                 viewHolder.setTime(model.getTime());
                 viewHolder.setDate(model.getDate());
                 viewHolder.setImage(getApplicationContext(), model.getImage());
                 viewHolder.setTitle(model.getTitle());
                 viewHolder.setBody(model.getBody());
+
+                viewHolder.mView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent viewPageIntent = new Intent(HomePage.this, ViewPostPage.class);
+                        viewPageIntent.putExtra("Posts_id", post_key);
+                        startActivity(viewPageIntent);
+                    }
+                });
+
             }
         };
         postList.setAdapter(firebaseRecyclerAdapter);
@@ -157,6 +169,9 @@ public class HomePage extends AppCompatActivity {
             case R.id.EditProfile: {
                 startActivity(new Intent(HomePage.this, ViewProfilePage.class));
                 break;
+            }
+            case R.id.SearchMenu:{
+
             }
         }
         return super.onOptionsItemSelected(item);
