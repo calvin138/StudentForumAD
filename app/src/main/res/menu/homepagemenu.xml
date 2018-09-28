@@ -23,24 +23,32 @@
 
 
     </item>
-    <item
+     <item
 
-        android:id="@+id/RefreshMenu"
+        android:id="@+id/SearchMenu"
         android:orderInCategory="300"
         app:showAsAction="always"
-        android:title="Refresh"
+        android:icon="@android:drawable/ic_menu_search"
+        app:actionViewClass="android.widget.SearchView"
+        android:title="Search"
         >
 
 
     </item>
     <item
 
-        android:id="@+id/CalvinMenu"
+        android:id="@+id/EditProfile"
         android:orderInCategory="100"
         app:showAsAction="never"
-        android:title="Calvin"
+        android:title="View Profile"
         >
 
 
     </item>
+    <item
+        android:id="@+id/YourPostMenu"
+        android:title="Your Post"
+        android:orderInCategory="250"
+        app:showAsAction="never"
+        />
 </menu>

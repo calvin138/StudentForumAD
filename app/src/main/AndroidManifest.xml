@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="forum.student.studentforumad">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,7 +20,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".HomePage" />
-        <activity android:name=".RegistrationPage"></activity>
+        <activity android:name=".RegistrationPage" />
+        <activity android:name=".AddPostPage" />
+        <activity android:name=".ViewPostActivity" />
+        <activity android:name=".ViewProfilePage" />
+        <activity android:name=".UpdateProfile" />
+        <activity android:name=".UpdatePassword"></activity>
     </application>
 
 </manifest>
