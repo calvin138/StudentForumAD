@@ -25,6 +25,7 @@ public class RegistrationPage extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     String Email, name, Password;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,7 +93,7 @@ public class RegistrationPage extends AppCompatActivity {
 
     private void sendUserData() {
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = firebaseDatabase.getReference(firebaseAuth.getUid());
+        DatabaseReference myRef = firebaseDatabase.getReference().child("Users").child(firebaseAuth.getCurrentUser().getUid());
         UserProfile userProfile = new UserProfile(name, Email);
         myRef.setValue(userProfile);
 

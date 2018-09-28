@@ -40,7 +40,7 @@ public class ViewProfilePage extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
 
-        DatabaseReference ref = firebaseDatabase.getReference(firebaseAuth.getUid());
+        DatabaseReference ref = firebaseDatabase.getReference().child("Users").child(firebaseAuth.getCurrentUser().getUid());
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override

@@ -37,7 +37,7 @@ public class UpdateProfile extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
 
-        final DatabaseReference ref = firebaseDatabase.getReference(firebaseAuth.getUid());
+        final DatabaseReference ref = firebaseDatabase.getReference().child("Users").child(firebaseAuth.getCurrentUser().getUid());
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override
